@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="SerialRead.InstrumentCluster"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SerialRead"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1500">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Label Content="INSTRUMENT CLUSTER" Background="White" FontSize="50" HorizontalContentAlignment="Center" Loaded="Label_Loaded"/>
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Column="0" Grid.Row="0" Content="Shaft Speed [Revolutions/Sec]" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                        <TextBox Name="ShaftSpeedTextBox" Margin="10" FontSize="50" Grid.Column="0" Grid.Row="1" Text="{Binding Path = Measurement, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <local:Dial Margin="10">
+
+                        </local:Dial>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Column="0" Grid.Row="0" Content="Pressure" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                        <TextBox Name="PressureTextBox" Margin="10" Grid.Column="0" FontSize="50" Grid.Row="1" Text="{Binding Path = Measurement, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <local:Dial Margin="10">
+
+                        </local:Dial>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="2" Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Column="0" Grid.Row="0" Content="Temperature" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                        <TextBox Name="TemperatureTextBox" Margin="10" Grid.Column="0" FontSize="50" Grid.Row="1" Text="{Binding Path = Measurement, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <local:Dial Margin="10">
+
+                        </local:Dial>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+    
+</UserControl>
