@@ -67,7 +67,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
 
-                            <Label Grid.Column="0" Grid.Row="0" Content="Pressure [bars]" Foreground="Blue" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                            <Label Grid.Column="0" Grid.Row="0" Content="Pressure [bars]" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
                             <TextBox Name="PressureTextBox" Margin="10" Grid.Column="0" FontSize="50" Grid.Row="1" Text="{Binding Path = Measurement, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
                              HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         </Grid>
@@ -95,7 +95,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
 
-                            <Label Grid.Column="0" Grid.Row="0" Content="Temperature [degree F]" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                            <Label Grid.Column="0" Grid.Row="0" Content="Temperature [degree F]" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
                             <TextBox Name="TemperatureTextBox" Margin="10" Grid.Column="0" FontSize="50" Grid.Row="1" Text="{Binding Path = Measurement, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
                              HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         </Grid>
