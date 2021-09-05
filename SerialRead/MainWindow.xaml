@@ -9,7 +9,7 @@
     <Window.Resources>
         <local:viewModel x:Key="viewModel"></local:viewModel>
     </Window.Resources>
-    <Grid>
+    <Grid Background="#FF262626">
         <local:InstrumentCluster></local:InstrumentCluster>
 
     </Grid>

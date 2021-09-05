@@ -14,7 +14,10 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Label Content="INSTRUMENT CLUSTER" Background="White" FontSize="50" HorizontalContentAlignment="Center" Loaded="Label_Loaded"/>
+            <Border BorderThickness="2" Background="White">
+                <Label Content="INSTRUMENT CLUSTER" Foreground="White" Background="#FF262626" FontSize="50" HorizontalContentAlignment="Center" Loaded="Label_Loaded"/>
+            </Border>
+            
         </Grid>
         
         <Grid Grid.Row="1">
@@ -23,83 +26,89 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Grid.Row="1">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
+            <Border BorderThickness="2" Background="White">
+                <Grid Grid.Column="0" Grid.Row="1" Background="#FF262626">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Column="0" Grid.Row="0" Content="Shaft Speed [Revolutions/Sec]" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                            <TextBox Name="ShaftSpeedTextBox" Margin="10" FontSize="50" Grid.Column="0" Grid.Row="1" Text="{Binding Path = Measurement, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <local:Dial Margin="10">
+
+                            </local:Dial>
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <Border BorderThickness="2" Background="white" Grid.Row="1" Grid.Column="1">
+                <Grid Grid.Column="1" Grid.Row="1" Background="#FF262626">
+                    <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
 
-                        <Label Grid.Column="0" Grid.Row="0" Content="Shaft Speed [Revolutions/Sec]" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
-                        <TextBox Name="ShaftSpeedTextBox" Margin="10" FontSize="50" Grid.Column="0" Grid.Row="1" Text="{Binding Path = Measurement, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                            <Label Grid.Column="0" Grid.Row="0" Content="Pressure [bars]" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                            <TextBox Name="PressureTextBox" Margin="10" Grid.Column="0" FontSize="50" Grid.Row="1" Text="{Binding Path = Measurement, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
                              HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <local:Dial Margin="10">
+
+                            </local:Dial>
+                        </Grid>
+
                     </Grid>
-
-                    <Grid Grid.Row="1">
-                        <local:Dial Margin="10">
-
-                        </local:Dial>
-                    </Grid>
-
                 </Grid>
-            </Grid>
+            </Border>
 
-            <Grid Grid.Column="1" Grid.Row="1">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
+            <Border Grid.Row="1" Grid.Column="2" BorderThickness="2" Background="White">
+                <Grid Grid.Column="2" Grid.Row="1" Background="#FF262626">
+                    <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
 
-                        <Label Grid.Column="0" Grid.Row="0" Content="Pressure [bars]" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
-                        <TextBox Name="PressureTextBox" Margin="10" Grid.Column="0" FontSize="50" Grid.Row="1" Text="{Binding Path = Measurement, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                            <Label Grid.Column="0" Grid.Row="0" Content="Temperature [degree F]" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                            <TextBox Name="TemperatureTextBox" Margin="10" Grid.Column="0" FontSize="50" Grid.Row="1" Text="{Binding Path = Measurement, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
                              HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <local:Dial Margin="10">
+
+                            </local:Dial>
+                        </Grid>
+
                     </Grid>
-
-                    <Grid Grid.Row="1">
-                        <local:Dial Margin="10">
-
-                        </local:Dial>
-                    </Grid>
-
                 </Grid>
-            </Grid>
-
-            <Grid Grid.Column="2" Grid.Row="1">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-
-                        <Label Grid.Column="0" Grid.Row="0" Content="Temperature [degree F]" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
-                        <TextBox Name="TemperatureTextBox" Margin="10" Grid.Column="0" FontSize="50" Grid.Row="1" Text="{Binding Path = Measurement, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
-                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                    </Grid>
-
-                    <Grid Grid.Row="1">
-                        <local:Dial Margin="10">
-
-                        </local:Dial>
-                    </Grid>
-
-                </Grid>
-            </Grid>
+            </Border>
         </Grid>
     </Grid>
     

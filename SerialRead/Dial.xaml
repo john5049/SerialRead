@@ -28,10 +28,10 @@
             </Ellipse.RenderTransform>
 
         </Ellipse>
-        <Label x:Name="label" Content="0">
+        <Label x:Name="label" Content="0" Foreground="White">
             
         </Label>
-        <Label x:Name="label1" Content="1023"/>
+        <Label x:Name="label1" Content="1023" Foreground="White"/>
 
     </Grid>
 </UserControl>
