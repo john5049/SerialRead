@@ -11,11 +11,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="7*"/>
+            <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Border BorderThickness="2" Background="White">
-                <Label Content="INSTRUMENT CLUSTER" Foreground="White" Background="#FF262626" FontSize="50" HorizontalContentAlignment="Center" Loaded="Label_Loaded"/>
+            <Border BorderThickness="3" Background="White">
+                <Label Content="INSTRUMENT CLUSTER" Foreground="White" Background="#FF262626" FontSize="40" HorizontalContentAlignment="Center" Loaded="Label_Loaded"/>
             </Border>
             
         </Grid>
@@ -39,7 +40,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
 
-                            <Label Grid.Column="0" Grid.Row="0" Content="Shaft Speed [Revolutions/Sec]" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                            <Label Grid.Column="0" Grid.Row="0" Content="Shaft Speed [Revolutions/Sec]" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
                             <TextBox Name="ShaftSpeedTextBox" Margin="10" FontSize="50" Grid.Column="0" Grid.Row="1" Text="{Binding Path = Measurement, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
                              HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         </Grid>
@@ -67,7 +68,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
 
-                            <Label Grid.Column="0" Grid.Row="0" Content="Pressure [bars]" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                            <Label Grid.Column="0" Grid.Row="0" Content="Pressure [bars]" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
                             <TextBox Name="PressureTextBox" Margin="10" Grid.Column="0" FontSize="50" Grid.Row="1" Text="{Binding Path = Measurement, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
                              HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         </Grid>
@@ -95,7 +96,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
 
-                            <Label Grid.Column="0" Grid.Row="0" Content="Temperature [degree F]" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                            <Label Grid.Column="0" Grid.Row="0" Content="Temperature [degree F]" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
                             <TextBox Name="TemperatureTextBox" Margin="10" Grid.Column="0" FontSize="50" Grid.Row="1" Text="{Binding Path = Measurement, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
                              HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         </Grid>
@@ -105,10 +106,28 @@
 
                             </local:Dial>
                         </Grid>
-
                     </Grid>
                 </Grid>
             </Border>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Canvas>
+                <Label Name="statusLabel" Canvas.Left="10" Canvas.Bottom="0" Content="Status: " Width="56" Foreground="White" FontSize="15"/>
+                <Ellipse Name="statusLight" Height="15" Width="15" Canvas.Left="65" Canvas.Bottom="7">
+                    <Ellipse.Style>
+                        <Style TargetType="Ellipse">
+                            <Setter Property="Fill" Value="Red"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding StatusLight}" Value="True">
+                                    <Setter Property="Fill" Value="Green"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Ellipse.Style>
+                </Ellipse>
+            </Canvas>
+            
         </Grid>
     </Grid>
     

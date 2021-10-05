@@ -31,5 +31,12 @@ namespace SerialRead
             set { angle = value; OnPropertyChanged(nameof(Angle)); }
             get { return angle; }
         }
+
+        private bool statusLight;
+        public bool StatusLight
+        {
+            set { statusLight = value; OnPropertyChanged(nameof(StatusLight)); }
+            get { return statusLight; }
+        }
     }
 }

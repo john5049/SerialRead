@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System;
 using System.IO.Ports;
+using System.Threading;
 
 namespace SerialRead
 {
@@ -30,6 +31,8 @@ namespace SerialRead
             InitializeComponent();
             vm = (viewModel)FindResource("viewModel");
             this.DataContext = vm;
+            string[] ports = System.IO.Ports.SerialPort.GetPortNames();
+            Console.WriteLine(ports);
         }
 
         [STAThread]
@@ -40,13 +43,19 @@ namespace SerialRead
 
         private void SerialPortProgram()
         {
-            Console.WriteLine("Incoming Data:");
-
-            port.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
-            port.Open();
-            Console.ReadLine();
+            try
+            {
+                port.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
+                port.Open();
+                Console.ReadLine();
+                //vm.StatusLight = true;
+            }
+            catch(Exception e)
+            {
+                //vm.StatusLight = false;
+            }
+            
         }
-
         private void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             string temp = port.ReadLine();
